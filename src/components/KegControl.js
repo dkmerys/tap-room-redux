@@ -6,6 +6,21 @@ import EditKegForm from './EditKegForm';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import * as a from './../actions'
+import styled from 'styled-components'
+
+const Button = styled.button`
+  background-color:#375173;
+	border-radius:28px;
+	border:1px solid #343d35;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:17px;
+	padding:16px 31px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #2f6627;
+`
 
 class KegControl extends React.Component {
   constructor(props) {
@@ -111,7 +126,7 @@ class KegControl extends React.Component {
     return(
       <React.Fragment>
         {currentlyVisibleState}
-        <button onClick={this.handleClick}>{buttonText}</button>
+        <Button onClick={this.handleClick}>{buttonText}</Button>
       </React.Fragment>
     );
   }
