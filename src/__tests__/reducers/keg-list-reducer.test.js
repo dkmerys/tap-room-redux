@@ -72,4 +72,28 @@ describe('kegListReducer', () => {
       id: '2'}
     });
   });
+  test('Should successfully decrement the quantity property of a keg by 1', () => {
+    const { id, name, brewery, description, abv, price, quantity } = kegData;
+    action = {
+      type: 'BUY_PINT',
+      name: name,
+      brewery: brewery,
+      description: description,
+      abv: abv,
+      price: price,
+      quantity: quantity,
+      id: id
+    };
+    expect(kegListReducer({}, action)).toEqual({
+      [id]: {
+        name: name,
+        brewery: brewery,
+        description: description,
+        abv: abv,
+        price: price,
+        quantity: 117,
+        id: id
+      }
+    })
+  })
 });
