@@ -29,6 +29,18 @@ export default (state = {}, action) => {
           id: id
         }
       });
+    case 'REPLACE_KEG':
+      return Object.assign({}, state, {
+        [id]: {
+          name: name,
+          brewery: brewery,
+          description: description,
+          abv: abv,
+          price: price,
+          quantity: 124,
+          id: id
+        }
+      });
     default:
       return state;
   }

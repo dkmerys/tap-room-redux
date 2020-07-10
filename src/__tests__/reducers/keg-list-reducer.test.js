@@ -96,4 +96,28 @@ describe('kegListReducer', () => {
       }
     })
   })
+  test('Should successfully adjust the quantity property of a keg to 124', () => {
+    const { id, name, brewery, description, abv, price, quantity } = kegData;
+    action = {
+      type: 'REPLACE_KEG',
+      name: name,
+      brewery: brewery,
+      description: description,
+      abv: abv,
+      price: price,
+      quantity: quantity,
+      id: id
+    };
+    expect(kegListReducer({}, action)).toEqual({
+      [id]: {
+        name: name,
+        brewery: brewery,
+        description: description,
+        abv: abv,
+        price: price,
+        quantity: 124,
+        id: id
+      }
+    })
+  })
 });
