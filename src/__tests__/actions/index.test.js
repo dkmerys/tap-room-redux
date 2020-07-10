@@ -2,6 +2,26 @@ import * as actions from './../../actions';
 import initialState from '../../components/InitialState';
 
 describe('taproom actions', () => {
+  it('addKeg should create ADD_KEG action', () => {
+    expect(actions.addKeg({
+      name: 'Hayduke Helles',
+      brewery: 'Crux',
+      description: 'Nice and crisp!',
+      abv: '5.5%',
+      price: '4',
+      quantity: 118,
+      id: 1
+    })).toEqual({
+      type: 'ADD_KEG',
+      name: 'Hayduke Helles',
+      brewery: 'Crux',
+      description: 'Nice and crisp!',
+      abv: '5.5%',
+      price: '4',
+      quantity: 118,
+      id: 1
+    })
+  })
   it('deleteKeg should create DELETE_KEG action', () => {
     expect(actions.deleteKeg(1)).toEqual({
       type: 'DELETE_KEG',
