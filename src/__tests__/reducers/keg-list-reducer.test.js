@@ -1,5 +1,5 @@
 import kegListReducer from '../../reducers/keg-list-reducer';
-
+import * as c from '../../actions/ActionTypes'
 describe('kegListReducer', () => {
 
   const currentState = {
@@ -36,7 +36,7 @@ describe('kegListReducer', () => {
   test('Should successfully add a new keg to kegList', () => {
     const { name, brewery, description, abv, price, quantity, id } = kegData;
     action = {
-      type: 'ADD_KEG',
+      type: c.ADD_KEG,
       name: name,
       brewery: brewery,
       description: description,
@@ -59,7 +59,7 @@ describe('kegListReducer', () => {
   });
   test('Should successfully delete a keg', () => {
     action = {
-      type: 'DELETE_KEG',
+      type: c.DELETE_KEG,
       id: 1
     };
     expect(kegListReducer(currentState, action)).toEqual({
@@ -75,7 +75,7 @@ describe('kegListReducer', () => {
   test('Should successfully decrement the quantity property of a keg by 1', () => {
     const { id, name, brewery, description, abv, price, quantity } = kegData;
     action = {
-      type: 'BUY_PINT',
+      type: c.BUY_PINT,
       name: name,
       brewery: brewery,
       description: description,
@@ -99,7 +99,7 @@ describe('kegListReducer', () => {
   test('Should successfully adjust the quantity property of a keg to 124', () => {
     const { id, name, brewery, description, abv, price, quantity } = kegData;
     action = {
-      type: 'REPLACE_KEG',
+      type: c.REPLACE_KEG,
       name: name,
       brewery: brewery,
       description: description,

@@ -1,7 +1,9 @@
+import * as c from './ActionTypes';
+
 export const addKeg = (keg) => {
   const { name, brewery, description, abv, price, quantity, id } = keg;
   return {
-    type: 'ADD_KEG',
+    type: c.ADD_KEG,
     name: name,
     brewery: brewery,
     description: description,
@@ -12,14 +14,14 @@ export const addKeg = (keg) => {
   }
 }
 export const deleteKeg = id => ({
-  type: 'DELETE_KEG',
+  type: c.DELETE_KEG,
   id
 });
 
 export const buyPint = (beerToBuy) => {
   const { name, brewery, description, abv, price, quantity, id } = beerToBuy;
   return {
-    type: 'BUY_PINT',
+    type: c.BUY_PINT,
     name: name,
     brewery: brewery,
     description: description,
@@ -33,7 +35,7 @@ export const buyPint = (beerToBuy) => {
 export const replaceKeg = (kegToReplace) => {
   const { name, brewery, description, abv, price, quantity, id } = kegToReplace;
   return {
-    type: 'REPLACE_KEG',
+    type: c.REPLACE_KEG,
     name: name,
     brewery: brewery,
     description: description,
@@ -45,5 +47,5 @@ export const replaceKeg = (kegToReplace) => {
 }
 
 export const toggleForm = () => ({
-  type: 'TOGGLE_FORM'
+  type: c.TOGGLE_FORM
 });

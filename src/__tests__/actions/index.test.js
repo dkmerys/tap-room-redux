@@ -1,5 +1,6 @@
 import * as actions from './../../actions';
 import initialState from '../../components/InitialState';
+import * as c from './../../actions/ActionTypes';
 
 describe('taproom actions', () => {
   it('addKeg should create ADD_KEG action', () => {
@@ -12,7 +13,7 @@ describe('taproom actions', () => {
       quantity: 118,
       id: 1
     })).toEqual({
-      type: 'ADD_KEG',
+      type: c.ADD_KEG,
       name: 'Hayduke Helles',
       brewery: 'Crux',
       description: 'Nice and crisp!',
@@ -24,7 +25,7 @@ describe('taproom actions', () => {
   })
   it('deleteKeg should create DELETE_KEG action', () => {
     expect(actions.deleteKeg(1)).toEqual({
-      type: 'DELETE_KEG',
+      type: c.DELETE_KEG,
       id:1
     });
   });
@@ -35,16 +36,16 @@ describe('taproom actions', () => {
       description: 'Nice and crisp!',
       abv: '5.5%',
       price: '4',
-      quantity: 118,
+      quantity: 5,
       id: 1
     })).toEqual({
-      type: 'BUY_PINT',
+      type: c.BUY_PINT,
       name: 'Hayduke Helles',
       brewery: 'Crux',
       description: 'Nice and crisp!',
       abv: '5.5%',
       price: '4',
-      quantity: 117,
+      quantity: 4,
       id: 1
     })
   })
@@ -58,7 +59,7 @@ describe('taproom actions', () => {
       quantity: 118,
       id: 1
     })).toEqual({
-      type: 'REPLACE_KEG',
+      type: c.REPLACE_KEG,
       name: 'Hayduke Helles',
       brewery: 'Crux',
       description: 'Nice and crisp!',
@@ -70,7 +71,7 @@ describe('taproom actions', () => {
   })
   it('toggleForm should create TOGGLE_FORM action', () => {
     expect(actions.toggleForm()).toEqual({
-      type: 'TOGGLE_FORM'
+      type: c.TOGGLE_FORM
     });
   });
 });
