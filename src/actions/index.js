@@ -16,6 +16,20 @@ export const deleteKeg = id => ({
   id
 });
 
+export const buyPint = (beerToBuy) => {
+  const { name, brewery, description, abv, price, quantity, id } = beerToBuy;
+  return {
+    type: 'BUY_PINT',
+    name: name,
+    brewery: brewery,
+    description: description,
+    abv: abv,
+    price: price,
+    quantity: quantity - 1,
+    id: id
+  }
+}
+
 export const toggleForm = () => ({
   type: 'TOGGLE_FORM'
 });
