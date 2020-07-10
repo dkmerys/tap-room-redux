@@ -68,34 +68,14 @@ class KegControl extends React.Component {
 
   handleBuyingKeg = (beerToBuy) => {
     const { dispatch } = this.props;
-    const { id, name, brewery, description, abv, price, quantity } = beerToBuy;
-    const action = {
-      type: 'BUY_PINT',
-      id: id,
-      name: name,
-      brewery: brewery,
-      description: description,
-      abv: abv,
-      price: price,
-      quantity: quantity
-    }
+    const action = a.buyPint(beerToBuy);
     dispatch(action)
     this.setState({selectedKeg: null})
   }
 
   handleReplacingKeg = (kegToReplace) => {
     const { dispatch } = this.props;
-    const { id, name, brewery, description, abv, price, quantity } = kegToReplace;
-    const action = {
-      type: 'REPLACE_KEG',
-      id: id,
-      name: name,
-      brewery: brewery,
-      description: description,
-      abv: abv,
-      price: price,
-      quantity: quantity
-    }
+    const action = a.replaceKeg(kegToReplace)
     dispatch(action)
     this.setState({selectedKeg: null})
   }

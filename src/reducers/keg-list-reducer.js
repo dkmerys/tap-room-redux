@@ -25,7 +25,7 @@ export default (state = {}, action) => {
           description: description,
           abv: abv,
           price: price,
-          quantity: quantity - 1,
+          quantity: quantity -1,
           id: id
         }
       });

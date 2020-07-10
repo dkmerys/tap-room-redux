@@ -25,7 +25,21 @@ export const buyPint = (beerToBuy) => {
     description: description,
     abv: abv,
     price: price,
-    quantity: quantity - 1,
+    quantity: quantity,
+    id: id
+  }
+}
+
+export const replaceKeg = (kegToReplace) => {
+  const { name, brewery, description, abv, price, quantity, id } = kegToReplace;
+  return {
+    type: 'REPLACE_KEG',
+    name: name,
+    brewery: brewery,
+    description: description,
+    abv: abv,
+    price: price,
+    quantity: 124,
     id: id
   }
 }

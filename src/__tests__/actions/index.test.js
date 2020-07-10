@@ -48,6 +48,26 @@ describe('taproom actions', () => {
       id: 1
     })
   })
+  it('replaceKeg should create REPLACE_KEG action', () => {
+    expect(actions.replaceKeg({
+      name: 'Hayduke Helles',
+      brewery: 'Crux',
+      description: 'Nice and crisp!',
+      abv: '5.5%',
+      price: '4',
+      quantity: 118,
+      id: 1
+    })).toEqual({
+      type: 'REPLACE_KEG',
+      name: 'Hayduke Helles',
+      brewery: 'Crux',
+      description: 'Nice and crisp!',
+      abv: '5.5%',
+      price: '4',
+      quantity: 124,
+      id: 1
+    })
+  })
   it('toggleForm should create TOGGLE_FORM action', () => {
     expect(actions.toggleForm()).toEqual({
       type: 'TOGGLE_FORM'
