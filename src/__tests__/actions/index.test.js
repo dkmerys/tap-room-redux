@@ -45,7 +45,7 @@ describe('taproom actions', () => {
       description: 'Nice and crisp!',
       abv: '5.5%',
       price: '4',
-      quantity: 4,
+      quantity: 5,
       id: 1
     })
   })
