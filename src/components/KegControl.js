@@ -92,28 +92,38 @@ class KegControl extends React.Component {
     });
   }
 
-  handleBuyingKeg = (id) => {
-    const purchasedKeg = this.state.kegList.filter(keg => keg.id === id)[0];
-    if (purchasedKeg.quantity > 0) {
-      purchasedKeg.quantity -= 1
+  handleBuyingKeg = (beerToBuy) => {
+    const { dispatch } = this.props;
+    const { id, name, brewery, description, abv, price, quantity } = beerToBuy;
+    const action = {
+      type: 'BUY_PINT',
+      id: id,
+      name: name,
+      brewery: brewery,
+      description: description,
+      abv: abv,
+      price: price,
+      quantity: quantity
     }
-    const editedKegList = this.state.kegList
-                          .filter(keg => keg.id !== this.state.selectedKeg.id)
-                          .concat(purchasedKeg);
-    this.setState({
-      kegList: editedKegList
-    });
+    dispatch(action)
+    this.setState({selectedKeg: null})
   }
 
-  handleReplacingKeg = (id) => {
-    const replacedKeg = this.state.kegList.filter(keg => keg.id === id)[0];
-    replacedKeg.quantity = 124;
-    const editedKegList = this.state.kegList
-                          .filter(keg => keg.id !== this.state.selectedKeg.id)
-                          .concat(replacedKeg);
-    this.setState({
-      kegList: editedKegList
-    });
+  handleReplacingKeg = (kegToReplace) => {
+    const { dispatch } = this.props;
+    const { id, name, brewery, description, abv, price, quantity } = kegToReplace;
+    const action = {
+      type: 'REPLACE_KEG',
+      id: id,
+      name: name,
+      brewery: brewery,
+      description: description,
+      abv: abv,
+      price: price,
+      quantity: quantity
+    }
+    dispatch(action)
+    this.setState({selectedKeg: null})
   }
 
 
